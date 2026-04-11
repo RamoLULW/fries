@@ -1,9 +1,10 @@
-const { Router } = require("express");
-const { getHome, getFries } = require("../controllers/index.controllers");
+import { Router } from "express";
+import { getHome, getMarco, getPing } from "../controllers/index.controllers.js";
 
 const router = Router();
 
 router.get("/", getHome);
-router.get("/fries", getFries);
+router.get("/marco", getMarco);
+router.get("/ping", getPing);
 
-module.exports = router;
+export default router;

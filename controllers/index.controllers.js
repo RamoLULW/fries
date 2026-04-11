@@ -1,12 +1,11 @@
-const getHome = (_req, res) => {
-	res.send("hello world");
+export const getHome = (_req, res) => {
+	res.json({ message: "REST API funcionando" });
 };
 
-const getFries = (_req, res) => {
-	res.send("Give me a large fries and coke");
+export const getMarco = (_req, res) => {
+	res.json({ message: "Polo" });
 };
 
-module.exports = {
-	getHome,
-	getFries,
+export const getPing = (_req, res) => {
+	res.json({ message: "pong" });
 };
