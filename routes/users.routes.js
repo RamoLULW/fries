@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { getUsers, getUser, postUser, putUser, deleteUser } from "../controllers/users.controllers.js";
+import { requireAuth } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
+router.use("/users", requireAuth);
 router.get("/users", getUsers);
 router.get("/users/:id", getUser);
 router.post("/users", postUser);

@@ -1,5 +1,6 @@
 import User from "../models/users.model.js";
 import { comparePassword, hashPassword, isPasswordHashed, sanitizeUser } from "../utils/password.js";
+import { createAccessToken } from "../utils/jwt.js";
 
 export const login = async (req, res) => {
     try {
@@ -27,7 +28,10 @@ export const login = async (req, res) => {
             await user.save();
         }
 
-        res.json({ login: true, msg: "Ok", user: sanitizeUser(user) });
+        const safeUser = sanitizeUser(user);
+        const token = createAccessToken(safeUser);
+
+        res.json({ login: true, msg: "Ok", user: safeUser, token });
     } catch (error) {
         res.status(500).json({ login: false, msg: error.message, user: {} });
     }
