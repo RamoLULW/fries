@@ -8,6 +8,7 @@
     "dev": "nodemon index.js",
     "demo:passwords": "node scripts/password-demo.js",
     "migrate:passwords": "node scripts/migrate-passwords.js",
+    "seed:root": "node scripts/ensure-root-user.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
